@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #acbaca;
+}
+.clock{
+    position: relative;
+    height: 300px;
+    width: 300px;
+    background: #fff;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 30px 30px 30px -10px rgba(0,0,0,0.15),
+    inset 15px 15px 10px rgba(255,255,255,0.75),
+           -15px -15px 35px rgba(255,255,255,0.55),
+           inset -1px -1px 10px rgba(0,0,0,0.5);
+
+}
+.clock::before{
+    content: ' ';
+    position: absolute;
+    background: #e91e63;
+    box-shadow:0 0 0 1px  #e91e63,
+    0 0 0 3px #fff,
+    0 0 5px 5px rgba(0,0,0,0.15);
+    height: 4px;
+    width: 4px;
+    z-index: 1000;
+    border-radius:50%;
+}
+.clock .numbers{
+    position: absolute;
+    background: #152b4a;
+    inset: 35px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 15px 152b4a66;
+    inset: 5px 5px 5px rgba(255,255,255,0.55),
+    -6px -6px 10px rgba(255,255,255,1);
+
+}
+.clock .numbers span{
+    position: absolute;
+    inset: 5px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+    transform: rotate(calc(90deg * var(--i)));
+
+}
+.clock .numbers span b{
+    font-weight: 600;
+    transform: rotate(calc(-90deg * var(--i)));
+display: inline-block;
+}
+.clock .numbers::before{
+    content: ' ';
+    background: linear-gradient(rgb(255, 0, 149),rgb(135, 218, 235));
+    inset: 36px;
+    position: absolute;
+    border-radius: 50%;
+    animation: animate 2s linear infinite;
+    -webkit-animation: animate 2s linear infinite;
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: rotate(360deg);
+
+}
+ 100%
+    {
+        transform: rotate(0deg);
+
+}
+}
+.clock .numbers::after{
+    content: ' ';
+    position: absolute;
+    inset: 38px;
+    background:#152b4a ;
+    border-radius: 50%;
+
+}
+.clock .numbers .circle{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+
+}
+.clock .numbers .circle i{
+    position: absolute;
+    height: 50%;
+    width: 3px;
+    background-color:#fff;
+    transform-origin: bottom;
+    transform: scaleY(0.55);
+}
+
+.clock .numbers .circle#hr i{
+    transform: scaleY(0.3);
+    width: 4px;
+}
+.clock .numbers .circle#mm i{
+    transform: scaleY(0.45);
+    -webkit-transform: scaleY(0.45);
+    -moz-transform: scaleY(0.45);
+    -ms-transform: scaleY(0.45);
+    -o-transform: scaleY(0.45);
+}
+.clock .numbers .circle#sc i{
+    transform: scaleY(0.55);
+    width: 2px;
+    -webkit-transform: scaleY(0.55);
+    -moz-transform: scaleY(0.55);
+    -ms-transform: scaleY(0.55);
+    -o-transform: scaleY(0.55);
+    background: #e91e63;
+    box-shadow: 0px 30px 0 #e91e63;
+}
